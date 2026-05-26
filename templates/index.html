@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROI Prediction</title>
+
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- HEADER -->
+    <div class="header">
+        <h1>🌾 Return on Investment Prediction</h1>
+        <p>AI-powered farming profitability prediction system</p>
+    </div>
+
+    <!-- STEPS -->
+    <div class="steps">
+        <div class="step active">Farm</div>
+        <div class="step">Operations</div>
+        <div class="step">Financials</div>
+        <div class="step">Result</div>
+    </div>
+
+    <!-- FORM -->
+    <form id="form">
+
+        <!-- ===================================== -->
+        <!-- STEP 1 : FARM DETAILS -->
+        <!-- ===================================== -->
+
+        <div class="step-box active">
+
+            <h2>Farm Details</h2>
+
+            <div class="grid">
+
+                <!-- CROP -->
+                <div class="field">
+                    <label>
+                        Select Crop
+                        <span class="help-icon">?
+                            <span class="tooltip">
+                                Type of crop being cultivated
+                            </span>
+                        </span>
+                    </label>
+
+                    <select name="CROP">
+                        <option value="">Select Crop</option>
+                        <option>Rice</option>
+                        <option>Wheat</option>
+                        <option>Maize</option>
+                    </select>
+                </div>
+
+                <!-- STATE -->
+                <div class="field">
+                    <label>
+                        Select State
+                        <span class="help-icon">?
+                            <span class="tooltip">
+                                State where your farm is located
+                            </span>
+                        </span>
+                    </label>
+
+                    <select name="STATE">
+                        <option value="">Select State</option>
+                        <option>Bihar</option>
+                        <option>Punjab</option>
+                        <option>UP</option>
+                        <option>Maharashtra</option>
+                        <option>West Bengal</option>
+                    </select>
+                </div>
+
+                <!-- AREA -->
+                <div class="field">
+                    <label>
+                        Farm Area (hectares)
+                        <span class="help-icon">?
+                            <span class="tooltip">
+                                Enter total farm area
+                            </span>
+                        </span>
+                    </label>
+
+                    <input
+                        type="number"
+                        name="AREA"
+                        value="2.0"
+                        min="0.1"
+                        step="0.01"
+                    >
+                </div>
+
+                <!-- SOIL -->
+                <div class="field">
+                    <label>
+                        Soil Type
+                        <span class="help-icon">?
+                            <span class="tooltip">
+                                Soil type affects crop yield
+                            </span>
+                        </span>
+                    </label>
+
+                    <select name="SOIL">
+                        <option value="">Select Soil</option>
+                        <option>Clay</option>
+                        <option>Sandy Loam</option>
+                        <option>Sandy</option>
+                        <option>Loam</option>
+                    </select>
+                </div>
+
+                <!-- SEASON -->
+                <div class="field">
+                    <label>
+                        Season
+                        <span class="help-icon">?
+                            <span class="tooltip">
+                                Kharif (rainy), Rabi (winter)
+                            </span>
+                        </span>
+                    </label>
+
+                    <select name="SEASON">
+                        <option value="">Select Season</option>
+                        <option>Kharif</option>
+                        <option>Rabi</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="nav">
+                <button
+                    type="button"
+                    class="btn primary"
+                    onclick="nextStep()"
+                >
+                    Next →
+                </button>
+            </div>
+
+        </div>
+
+        <!-- ===================================== -->
+        <!-- STEP 2 : OPERATIONS -->
+        <!-- ===================================== -->
+
+        <div class="step-box">
+
+            <h2>Operations</h2>
+
+            <div class="grid">
+
+                <!-- IRRIGATION -->
+                <div class="field">
+                    <label>
+                        Irrigation
+                        <span class="help-icon">?
+                            <span class="tooltip">
+                                Water supply method
+                            </span>
+                        </span>
+                    </label>
+
+                    <select name="IRRIGATION">
+                        <option value="">Select Method</option>
+                        <option>Sprinkler</option>
+                        <option>Flood</option>
+                        <option>Drip</option>
+                        <option>Rainfed</option>
+                        <option>Furrow</option>
+                    </select>
+                </div>
+
+                <!-- TILLAGE -->
+                <div class="field">
+                    <label>
+                        Tillage
+                        <span class="help-icon">?
+                            <span class="tooltip">
+                                Soil preparation method
+                            </span>
+                        </span>
+                    </label>
+
+                    <select name="TILLAGE">
+                        <option value="">Select Type</option>
+                        <option>Conventional</option>
+                        <option>Minimum</option>
+                        <option>Zero</option>
+                    </select>
+                </div>
+
+                <!-- FERTIGATION -->
+                <div class="field">
+                    <label>
+                        Fertigation
+                        <span class="help-icon">?
+                            <span class="tooltip">
+                                Fertilizer application method
+                            </span>
+                        </span>
+                    </label>
+
+                    <select name="FERTIGATION">
+                        <option value="">Select Method</option>
+                        <option>Power Sprayer</option>
+                        <option>Knapsack</option>
+                        <option>Drone Sprayer</option>
+                    </select>
+                </div>
+
+                <!-- SEEDER -->
+                <div class="field">
+                    <label>
+                        Seeder
+                        <span class="help-icon">?
+                            <span class="tooltip">
+                                Seed sowing equipment
+                            </span>
+                        </span>
+                    </label>
+
+                    <select name="SEEDER">
+                        <option value="">Select Type</option>
+                        <option>Manual</option>
+                        <option>Transplanter</option>
+                        <option>Drum</option>
+                        <option>Seed Drill</option>
+                        <option>Planter</option>
+                    </select>
+                </div>
+
+                <!-- HARVESTOR -->
+                <div class="field">
+                    <label>
+                        Harvestor
+                        <span class="help-icon">?
+                            <span class="tooltip">
+                                Harvesting method
+                            </span>
+                        </span>
+                    </label>
+
+                    <select name="HARVESTOR">
+                        <option value="">Select Type</option>
+                        <option>Combine</option>
+                        <option>Reaper</option>
+                        <option>Manual</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="nav">
+
+                <button
+                    type="button"
+                    class="btn secondary"
+                    onclick="prevStep()"
+                >
+                    ← Back
+                </button>
+
+                <button
+                    type="button"
+                    class="btn primary"
+                    onclick="nextStep()"
+                >
+                    Next →
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- ===================================== -->
+        <!-- STEP 3 : FINANCIALS -->
+        <!-- ===================================== -->
+
+        <div class="step-box">
+
+            <h2>Financial Details</h2>
+
+            <div class="grid">
+
+                <!-- YIELD -->
+                <div class="field">
+                    <label>
+                        Yield (kg)
+                        <span class="help-icon">?
+                            <span class="tooltip">
+                                Expected crop production
+                            </span>
+                        </span>
+                    </label>
+
+                    <input
+                        type="number"
+                        name="YIELD"
+                        value="3000"
+                        min="0"
+                    >
+                </div>
+
+                <!-- WATER -->
+                <div class="field">
+                    <label>
+                        Water Usage
+                        <span class="help-icon">?
+                            <span class="tooltip">
+                                Overall water usage level
+                            </span>
+                        </span>
+                    </label>
+
+                    <select name="WATER">
+                        <option value="">Select Level</option>
+                        <option>Very Low</option>
+                        <option>Low</option>
+                        <option>Medium</option>
+                        <option>High</option>
+                    </select>
+                </div>
+
+                <!-- LABOUR -->
+                <div class="field">
+                    <label>
+                        Labour Cost (₹)
+                        <span class="help-icon">?
+                            <span class="tooltip">
+                                Total labour expenses
+                            </span>
+                        </span>
+                    </label>
+
+                    <input
+                        type="number"
+                        name="LABOUR"
+                        value="120"
+                        min="0"
+                    >
+                </div>
+
+                <!-- SEEDS -->
+                <div class="field">
+                    <label>
+                        Seeds Cost (₹)
+                        <span class="help-icon">?
+                            <span class="tooltip">
+                                Cost of seeds used
+                            </span>
+                        </span>
+                    </label>
+
+                    <input
+                        type="number"
+                        name="SEEDS"
+                        value="30"
+                        min="0"
+                    >
+                </div>
+
+                <!-- INVESTMENT -->
+                <div class="field">
+                    <label>
+                        Total Investment (₹)
+                        <span class="help-icon">?
+                            <span class="tooltip">
+                                Total investment amount
+                            </span>
+                        </span>
+                    </label>
+
+                    <input
+                        type="number"
+                        name="INVESTMENT"
+                        value="50000"
+                        min="0"
+                    >
+                </div>
+
+            </div>
+
+            <div class="nav">
+
+                <button
+                    type="button"
+                    class="btn secondary"
+                    onclick="prevStep()"
+                >
+                    ← Back
+                </button>
+
+                <button
+                    type="submit"
+                    class="btn primary"
+                >
+                    🌱 Calculate ROI
+                </button>
+
+            </div>
+
+        </div>
+
+    </form>
+
+    <!-- RESULT -->
+    <div id="result" class="result hidden"></div>
+
+</div>
+
+<script src="../static/script.js"></script>
+
+</body>
+</html>

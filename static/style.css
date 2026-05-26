@@ -1,0 +1,243 @@
+/* 🌿 BASE */
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --font-small: 15px;
+    --font-base: 17px;
+    --font-medium: 19px;
+    --font-large: 24px;
+    --font-xl: 40px;
+
+    --primary: #6dbf73;
+    --primary-light: #81c784;
+    --secondary: rgba(255,255,255,0.12);
+    --text-main: #e8f5e9;
+    --text-muted: #a5b8a6;
+}
+
+/* 🌄 BACKGROUND */
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
+
+    background: 
+        radial-gradient(circle at 80% 20%, rgba(255, 220, 120, 0.35), transparent 40%),
+        linear-gradient(rgba(15,31,23,0.75), rgba(15,31,23,0.85)),
+        url('https://images.unsplash.com/photo-1500382017468-9049fed747ef');
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* 📦 APP */
+.app {
+    width: 85%;
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+/* 🔝 HEADER */
+.header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.header h1 {
+    font-size: var(--font-xl);
+    color: #a5d6a7;
+}
+
+.header p {
+    font-size: var(--font-medium);
+    color: #c8e6c9;
+}
+
+/* 🧭 STEPS */
+.steps {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.step {
+    flex: 1;
+    padding: 14px;
+    text-align: center;
+    background: rgba(255,255,255,0.05);
+    border-radius: 25px;
+    font-size: var(--font-base);
+    color: #a5d6a7;
+    transition: 0.3s;
+}
+
+.step.active {
+    background: var(--primary);
+    color: #0f1f17;
+    font-weight: 600;
+    transform: scale(1.05);
+}
+
+.step.completed {
+    background: #3e7d4f;
+    color: #dcedc8;
+}
+
+/* 🧾 CARD */
+.step-box {
+    display: none;
+    background: rgba(0, 0, 0, 0.18);
+    padding: 30px;
+    border-radius: 18px;
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.step-box.active {
+    display: block;
+}
+
+/* 📊 GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+/* 🧩 FIELD (NEW STRUCTURE) */
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* 🏷 LABEL */
+.field label {
+    font-size: var(--font-small);
+    color: #c8e6c9;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* ❓ HELP ICON (NO BACKGROUND) */
+.help-icon {
+    font-size: 13px;
+    color: var(--text-muted);
+    cursor: pointer;
+    position: relative;
+    transition: 0.2s;
+}
+
+.help-icon:hover {
+    color: var(--primary);
+}
+
+/* 💬 TOOLTIP */
+.help-icon .tooltip {
+    position: absolute;
+    bottom: 130%;
+    left: 0;
+
+    background: #1a2421;
+    color: var(--text-main);
+    padding: 8px 10px;
+    border-radius: 6px;
+
+    font-size: 13px;
+    width: 200px;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(5px);
+    transition: 0.2s;
+    z-index: 10;
+}
+
+/* SHOW TOOLTIP */
+.help-icon:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* ✏️ INPUT */
+input, select {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(0,0,0,0.35);
+    color: var(--text-main);
+    font-size: var(--font-base);
+}
+
+/* PLACEHOLDER */
+input::placeholder {
+    color: var(--text-muted);
+}
+
+/* FOCUS */
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: rgba(0,0,0,0.5);
+}
+
+/* 🔘 BUTTONS */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.btn {
+    padding: 14px 24px;
+    border-radius: 12px;
+    font-size: var(--font-medium);
+    cursor: pointer;
+    border: none;
+}
+
+/* PRIMARY */
+.btn.primary {
+    background: var(--primary);
+    color: #0f1f17;
+}
+
+.btn.primary:hover {
+    background: var(--primary-light);
+}
+
+/* SECONDARY */
+.btn.secondary {
+    background: var(--secondary);
+    color: var(--text-main);
+}
+
+/* 📈 RESULT */
+.result {
+    margin-top: 30px;
+    padding: 30px;
+    text-align: center;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #3e7d4f, var(--primary));
+    font-size: 28px;
+    font-weight: bold;
+    color: #0f1f17;
+}
+
+.hidden {
+    display: none;
+}
+
+/* 📱 RESPONSIVE */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
