@@ -35,9 +35,12 @@ The system processes these inputs and generates an estimated **ROI value**.
 
 ## 🖥️ Application Preview
 
-![ROI Prediction Application](docs/screenshot.png)
 
-> **Screenshot:** The final ROI Result screen is recommended as the primary project screenshot because it clearly demonstrates the application's output.
+<p align="center">
+  <img src="static/screenshots/demo.jpeg" alt="ROI PREDECTION APPLICATION" width="900"/>
+</p>
+
+
 
 ---
 
@@ -122,19 +125,6 @@ The application is deployed using **Render**.
 The goal of this project is to demonstrate how **machine learning and web technologies can be combined to support data-driven agricultural investment and profitability analysis.**
 
 The system aims to provide users with an estimated ROI based on their farm characteristics, operational expenses, investment, and expected production.
-
----
-
-## 📸 Screenshot
-
-Add one screenshot of the application to the repository:
-
-```text
-docs/
-└── screenshot.png
-```
-
-The recommended screenshot is the **final ROI Result screen**, as it immediately communicates the main output of the application.
 
 ---
 
